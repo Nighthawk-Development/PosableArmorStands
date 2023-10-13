@@ -1,0 +1,73 @@
+
+#Commands
+# pas create
+# pas destroy
+# pas select
+# pas unselect
+# pas visible [true/false]
+# pas showbase [true/false]
+# pas gravity [true/false]
+# pas showarms [true/flase]
+# pas torso [degrees]
+# pas leftarm [degrees]
+# pas rightarm [degrees]
+# pas leftleg [degrees]
+# pas rightleg [degrees]
+# pas move [x] [y] [z]
+# pas showname [true/flase]
+# pas small [true/flase]
+# pas summon
+# pas copy
+# pas paste
+# pas body [degrees]
+# pas setname [name]
+
+# posablearmorstands.use (select, unselect)
+# posablearmorstands.pose (showbase, leftarm, rightarm, leftleg, rightleg, torso, showarms)
+# posablearmorstands.gravity (gravity)
+# posablearmorstands.visible (visibible)
+# posablearmorstands.move (move, position)
+# posablearmorstands.create (create, destroy)
+# posablearmorstands.name (showname, setname)
+# posablearmorstands.small (small)
+# posablearmorstands.copy (copy, paste)
+
+parameter-one-list:
+  - 'body'
+  - 'create'
+  - 'destroy'
+  - 'gravity'
+  - 'head'
+  - 'leftarm'
+  - 'leftleg'
+  - 'move'
+  - 'rightarm'
+  - 'rightleg'
+  - 'select'
+  - 'showarms'
+  - 'showbase'
+  - 'showname'
+  - 'small'
+  - 'summon'
+  - 'torso'
+  - 'unselect'
+  - 'visible'
+
+parameter-two-tf-list:
+  - 'true'
+  - 'false'
+
+parameter-two-degree-list:
+  - '[# degrees 1-360 or -1]'
+
+parameter-two-move-list: '[# >0 and <={0}]'
+
+create:
+  default-elevation: 0.0
+  default-distance: 2.0
+
+move:
+  distance-limit: 1.0
+
+select:
+  distance: 8

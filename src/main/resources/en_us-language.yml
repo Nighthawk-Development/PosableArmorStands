@@ -1,0 +1,77 @@
+commands:
+  create:
+    description: 'Creates an Armor Stand in front of player.'
+    usage: '/pas create'
+  destroy:
+    description: 'Destroy the selected Armor Stand.'
+    usage: '/pas destroy'
+  select:
+    description: 'Selects the Armor Stand targeted by the player.'
+    usage: '/pas select'
+  unselect:
+    description: 'Unselects the current selected Armor Stand.'
+    usage: '/pas unselect'
+  visible:
+    description: 'Sets the visibility for the currently selected Armor Stand.'
+    usage: '/pas visible [true/false]'
+  showbase:
+    description: 'Sets the base plate visibility for the currently selected Armor Stand.'
+    usage: '/pas showbase [true/false]'
+  gravity:
+    description: 'Sets gravity for the currently selected Armor Stand.'
+    usage: '/pas gravity [true/false]'
+  showname:
+    description: 'Sets the name visibility for the currently selected Armor Stand.'
+    usage: '/pas showname [true/false]'
+  showarms:
+    description: 'Sets the arms visibility for the currently selected Armor Stand.'
+    usage: '/pas showarms [true/false]'
+  leftarm:
+    description: 'Moves the leftarm of the currently selected Armor Stand.'
+    usage: '/pas leftarm [1-360 or -1]'
+  rightarm:
+    description: 'Moves the rightarm of the currently selected Armor Stand.'
+    usage: '/pas rightarm [1-360 or -1]'
+  leftleg:
+    description: 'Moves the lefleg of the currently selected Armor Stand.'
+    usage: '/pas leftarm [1-360 or -1]'
+  rightleg:
+    description: 'Moves the rightleg of the currently selected Armor Stand.'
+    usage: '/pas leftarm [1-360 or -1]'
+  torso:
+    description: 'Moves the torso of the currently selected Armor Stand.'
+    usage: '/pas torso [1-360 or -1]'
+  move:
+    description: 'Moves the currently selected Armor Stand.'
+    usage: '/pas move [>0 and <={0}'
+  summon:
+    description: 'Summons the currently selected Armor Stand to it''s former location.'
+    usage: '/pas summon'
+  body:
+    description: 'Rotates the whole body of the currently selected Armor Stand.'
+    usage: '/pas body [1-360 or -1]'
+  head:
+    description: 'Moves the head of the currently selected Armor Stand.'
+    usage: '/pas torso [1-360 or -1]'
+  small:
+    description: 'Set whether the currently selected Armor Stand is small.'
+    usage: '/pas small [true/false]'
+  copy:
+    description: 'Copies the currently selected Armor Stand pose settings.'
+    usage: '/pas copy'
+  paste:
+    description: 'Pastes the copied pose settings to the currently selected Armor Stand.'
+    usage: '/pas paste'
+
+errors:
+  armor-stand-not-selected: 'You must select an armor stand to perform this action.'
+  not-looking-at-armor-stand: 'You must be looking at an armor stand.'
+  invalid-parameter-count-one: 'The {0} command excepts one parameter.'
+  invalid-parameter-count-zero: 'The {0} command excepts zero parameter.'
+  invalid-boolean-parameter: 'Parameter one of the {0} command must be either [true or false].'
+  invalid-angle-parameter: 'Parameter one of the {0} command must be between 1 and 360 or -1.'
+  invalid-items-slots2: 'Item slots 1 - 2 must each be filled and with unique items.'
+  invalid-items-slots6: 'Item slots 1 - 6 must each be filled and with unique items.'
+  invalid-distance-parameter: 'Parameter one of the {0} command must be greater than 0 and less than or equal to {1}.'
+  no-permission-for-command: 'You do not have permission to use the {0} command.'
+

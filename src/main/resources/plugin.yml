@@ -1,0 +1,36 @@
+name: PosableArmorStands
+version: '${project.version}'
+main: com.kgiservices.posablearmorstands.PosableArmorStands
+api-version: '1.20'
+commands:
+  PosableArmorStands:
+    description: Minipulate Armor Stands
+    aliases: [ pas, pa, as ]
+permissions:
+  posablearmorstands.use:
+    description: Gives access to the select, unselect commands.
+    default: op
+  posablearmorstands.pose:
+   description: Gives access to the leftarm, rightarm, leftleg, rightleg, torso, showarms and showbase commands.
+   default: op
+  posablearmorstands.gravity:
+   description: Gives access to the gravity command.
+   default: op
+  posablearmorstands.visible:
+   description: Gives access to the visibible command.
+   default: op
+  posablearmorstands.move:
+    description: Gives access to the move command.
+    default: op
+  posablearmorstands.create:
+    description: Gives access to the create, destroy commands.
+    default: op
+  posablearmorstands.name:
+    description: Gives access to the showname, setname commands.
+    default: op
+  posablearmorstands.small:
+    description: Gives access to the small command.
+    default: op
+  posablearmorstands.copy:
+    description: Gives access to the copy, paste commands.
+    default: op
