@@ -62,6 +62,10 @@ commands:
   paste:
     description: 'Pastes the copied pose settings to the currently selected Armor Stand.'
     usage: '/pas paste'
+  help:
+    description: 'Displays general help or help for a specific command.'
+    usage: '/pas help [command?]'
+
 
 errors:
   armor-stand-not-selected: 'You must select an armor stand to perform this action.'

@@ -23,7 +23,6 @@ public enum ConfigurationLookup {
     Create_Default_Distance("create.default-distance"),
     Move_Limit("move.distance-limit"),
     Select_Distance("select.distance"),
-    Parameter_One_List ("parameter-one-list"),
     Parameter_Two_TF_List ("parameter-two-tf-list"),
     Parameter_Two_Degree_List ("parameter-two-degree-list"),
     Parameter_Two_Move_List ("parameter-two-move-list");

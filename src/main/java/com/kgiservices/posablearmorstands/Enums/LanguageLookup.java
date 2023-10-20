@@ -35,6 +35,8 @@ public enum LanguageLookup {
     Commands_ShowBase_Usage("commands.showbase.usage"),
     Commands_ShowName_Description("commands.showname.description"),
     Commands_ShowName_Usage("commands.showname.usage"),
+    Commands_Help_Usage("commands.help.usage"),
+    Commands_Help_Description("commands.help.description"),
     Commands_ShowArms_Description("commands.showarms.description"),
     Commands_ShowArms_Usage("commands.showarms.usage"),
     Commands_LeftArm_Description("commands.leftarm.description"),

@@ -39,7 +39,8 @@ public enum Commands {
     Summon("summon"),
     Torso("torso"),
     UnSelect("unselect"),
-    Visible("visible");
+    Visible("visible"),
+    Help("help");
 
     public final String commandText;
 

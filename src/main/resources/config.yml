@@ -21,8 +21,9 @@
 # pas paste
 # pas body [degrees]
 # pas setname [name]
+# pas help [command?]
 
-# posablearmorstands.use (select, unselect)
+# posablearmorstands.use (select, unselect, help)
 # posablearmorstands.pose (showbase, leftarm, rightarm, leftleg, rightleg, torso, showarms)
 # posablearmorstands.gravity (gravity)
 # posablearmorstands.visible (visibible)
@@ -32,26 +33,6 @@
 # posablearmorstands.small (small)
 # posablearmorstands.copy (copy, paste)
 
-parameter-one-list:
-  - 'body'
-  - 'create'
-  - 'destroy'
-  - 'gravity'
-  - 'head'
-  - 'leftarm'
-  - 'leftleg'
-  - 'move'
-  - 'rightarm'
-  - 'rightleg'
-  - 'select'
-  - 'showarms'
-  - 'showbase'
-  - 'showname'
-  - 'small'
-  - 'summon'
-  - 'torso'
-  - 'unselect'
-  - 'visible'
 
 parameter-two-tf-list:
   - 'true'
