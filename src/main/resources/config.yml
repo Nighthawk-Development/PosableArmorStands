@@ -1,29 +1,30 @@
 
 #Commands
-# pas create
-# pas destroy
-# pas select
-# pas unselect
-# pas visible [true/false]
-# pas showbase [true/false]
-# pas gravity [true/false]
-# pas showarms [true/flase]
-# pas torso [degrees]
-# pas leftarm [degrees]
-# pas rightarm [degrees]
-# pas leftleg [degrees]
-# pas rightleg [degrees]
-# pas move [x] [y] [z]
-# pas showname [true/flase]
-# pas small [true/flase]
-# pas summon
-# pas copy
-# pas paste
-# pas body [degrees]
-# pas setname [name]
-# pas help [command?]
+# pa create
+# pa destroy
+# pa select
+# pa unselect
+# pa visible [true/false]
+# pa showbase [true/false]
+# pa gravity [true/false]
+# pa showarms [true/flase]
+# pa torso [degrees]
+# pa leftarm [degrees]
+# pa rightarm [degrees]
+# pa leftleg [degrees]
+# pa rightleg [degrees]
+# pa move [x] [y] [z]
+# pa showname [true/flase]
+# pa small [true/flase]
+# pa summon
+# pa copy
+# pa paste
+# pa body [degrees]
+# pa setname [name]
+# pa help [command?]
+# pa reload
 
-# posablearmorstands.use (select, unselect, help)
+# posablearmorstands.use (select, unselect, help, reload)
 # posablearmorstands.pose (showbase, leftarm, rightarm, leftleg, rightleg, torso, showarms)
 # posablearmorstands.gravity (gravity)
 # posablearmorstands.visible (visibible)
@@ -43,6 +44,9 @@ parameter-two-degree-list:
 
 parameter-two-move-list: '[# >0 and <={0}]'
 
+parameter-text-list:
+  - '[text of name]'
+
 create:
   default-elevation: 0.0
   default-distance: 2.0
@@ -52,3 +56,10 @@ move:
 
 select:
   distance: 8
+
+illegal-words-list:
+  - bitch
+  - dick
+  - fag
+  - nigger
+  - homo

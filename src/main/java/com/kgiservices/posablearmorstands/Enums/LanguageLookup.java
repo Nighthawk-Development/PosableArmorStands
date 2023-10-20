@@ -33,8 +33,12 @@ public enum LanguageLookup {
     Commands_Gravity_Usage("commands.gravity.usage"),
     Commands_ShowBase_Description("commands.showbase.description"),
     Commands_ShowBase_Usage("commands.showbase.usage"),
+    Commands_SetName_Description("commands.setname.description"),
+    Commands_SetName_Usage("commands.setname.usage"),
     Commands_ShowName_Description("commands.showname.description"),
     Commands_ShowName_Usage("commands.showname.usage"),
+    Commands_ReLoad_Description("commands.reload.description"),
+    Commands_ReLoad_Usage("commands.reload.usage"),
     Commands_Help_Usage("commands.help.usage"),
     Commands_Help_Description("commands.help.description"),
     Commands_ShowArms_Description("commands.showarms.description"),
@@ -72,7 +76,9 @@ public enum LanguageLookup {
     No_Permission_For_Command("errors.no-permission-for-command"),
     Invalid_Items_Slot6("errors.invalid-items-slot6"),
     Invalid_Items_Slot2("errors.invalid-items-slot2"),
-    Invalid_Distance_Parameter("errors.invalid-distance-parameter");
+    Invalid_Distance_Parameter("errors.invalid-distance-parameter"),
+    Invalid_Name_Parameter("errors.invalid-name-parameter"),
+    Illegal_Name_Parameter("errors.illegal-name-parameter");
 
     public final String path;
 

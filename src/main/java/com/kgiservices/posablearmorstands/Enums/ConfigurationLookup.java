@@ -25,7 +25,10 @@ public enum ConfigurationLookup {
     Select_Distance("select.distance"),
     Parameter_Two_TF_List ("parameter-two-tf-list"),
     Parameter_Two_Degree_List ("parameter-two-degree-list"),
-    Parameter_Two_Move_List ("parameter-two-move-list");
+    Parameter_Two_Move_List ("parameter-two-move-list"),
+    Parameter_Text_List ("parameter-text-list"),
+    Illegal_Words_List ("illegal-words-list");
+
     public final String path;
 
     ConfigurationLookup(String path) {

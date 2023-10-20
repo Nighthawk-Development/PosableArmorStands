@@ -31,7 +31,7 @@ import java.util.List;
 public class RightArmCommand extends SubCommand {
     @Override
     public Commands subCommandName() {
-        return Commands.Right_Arm;
+        return Commands.RightArm;
     }
 
     @Override
@@ -66,6 +66,6 @@ public class RightArmCommand extends SubCommand {
 
     @Override
     public void Execute(Player player, String[] args) {
-        ArmorStandManager.getInstance().selectMotionPart(player, Commands.Right_Arm, Double.parseDouble(args[1]));
+        ArmorStandManager.getInstance().selectMotionPart(player, Commands.RightArm, Double.parseDouble(args[1]));
     }
 }

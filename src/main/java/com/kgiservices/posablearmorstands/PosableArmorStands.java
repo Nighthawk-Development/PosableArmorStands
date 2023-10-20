@@ -25,23 +25,28 @@ import com.kgiservices.posablearmorstands.Listeners.EntityListener;
 import com.kgiservices.posablearmorstands.Listeners.PlayerListener;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.logging.Level;
+
 public final class PosableArmorStands extends JavaPlugin {
 
+    private static PosableArmorStands plugin;
     @Override
     public void onEnable() {
-
+        this.plugin = this;
         getCommand("PosableArmorStands").setExecutor(new CommandManager(this));
         //getCommand("PosableArmorStands").setTabCompleter(new PosableArmorStandTabComplete(this));
         getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
         getServer().getPluginManager().registerEvents(new EntityListener(this), this);
         new ArmorStandManager(this);
-        new ConfigurationManager(this);
-
-
+        reloadConfiguration();
+        plugin.getLogger().log(Level.INFO, plugin.getDescription().getVersion() + " finished loading.");
     }
 
     @Override
     public void onDisable() {
         ArmorStandManager.getInstance().unSelectAllArmorStands();
+    }
+    public void reloadConfiguration() {
+        new ConfigurationManager(this);
     }
 }

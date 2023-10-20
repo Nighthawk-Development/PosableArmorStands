@@ -25,22 +25,26 @@ public enum Commands {
     Destroy("destroy"),
     Gravity("gravity"),
     Head("head"),
-    Left_arm("leftarm"),
-    Left_Leg("leftleg"),
+    Help("help"),
+    LeftArm("leftarm"),
+    LeftLeg("leftleg"),
     Move("move"),
     Paste("paste"),
-    Right_Arm("rightarm"),
-    Right_Leg("rightleg"),
+    ReLoad("reload"),
+    RightArm("rightarm"),
+    RightLeg("rightleg"),
     Select("select"),
-    Show_Arms("showarms"),
-    Show_Base("showbase"),
-    Show_Name("showname"),
+    SetName("setname"),
+    ShowArms("showarms"),
+    ShowBase("showbase"),
+    ShowName("showname"),
     Small("small"),
     Summon("summon"),
     Torso("torso"),
     UnSelect("unselect"),
-    Visible("visible"),
-    Help("help");
+    Visible("visible");
+
+
 
     public final String commandText;
 

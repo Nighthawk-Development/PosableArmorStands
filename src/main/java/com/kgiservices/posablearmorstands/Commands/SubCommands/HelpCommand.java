@@ -18,15 +18,14 @@
 
 package com.kgiservices.posablearmorstands.Commands.SubCommands;
 
-import com.kgiservices.posablearmorstands.ArmorStandManagement.ArmorStandManager;
 import com.kgiservices.posablearmorstands.Commands.SubCommand;
 import com.kgiservices.posablearmorstands.Configurations.ConfigurationManager;
 import com.kgiservices.posablearmorstands.Enums.Commands;
-import com.kgiservices.posablearmorstands.Enums.ConfigurationLookup;
 import com.kgiservices.posablearmorstands.Enums.LanguageLookup;
 import org.bukkit.entity.Player;
 
 import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 public class HelpCommand extends SubCommand {
@@ -66,17 +65,63 @@ public class HelpCommand extends SubCommand {
 
     @Override
     public List<String> getParameterOneList(Player player) {
-        return (List<String>) ConfigurationManager.getInstance().getConfigurationValue(ConfigurationLookup.Parameter_Two_Degree_List);
+        List<String> commandList = new ArrayList<>();
+        for (Commands command : Commands.values()) {
+            commandList.add(command.commandText);
+        }
+        return commandList;
     }
 
     @Override
     public void Execute(Player player, String[] args) {
+        String keyFix = "";
         if (args.length == 1) {
             for (Commands command : Commands.values()) {
-                ConfigurationManager.getInstance().sendPlayerMessage(player, LanguageLookup.valueOf(MessageFormat.format("Commands_{0}_Description", command.toString())));
+                keyFix = getKeyFix(command.toString());
+                sendHelp(player,
+                        MessageFormat.format("Commands_{0}_Usage", keyFix),
+                        MessageFormat.format("Commands_{0}_Description", keyFix));
             }
-        } else if (args.length == 1) {
-            ConfigurationManager.getInstance().sendPlayerMessage(player, LanguageLookup.valueOf(MessageFormat.format("Commands_{0}_Description", args[1])));
+        } else if (args.length == 2) {
+            keyFix = getKeyFix(args[1]);
+            sendHelp(player,
+                    MessageFormat.format("Commands_{0}_Usage", keyFix),
+                    MessageFormat.format("Commands_{0}_Description", keyFix));
         }
+    }
+
+    private void sendHelp(Player player, String usageKey, String descriptionKey) {
+        String usage = ConfigurationManager.getInstance().getLanguageValue(player, LanguageLookup.valueOf(usageKey));
+        String description = " &b> " + ConfigurationManager.getInstance().getLanguageValue(player, LanguageLookup.valueOf(descriptionKey));
+        ConfigurationManager.getInstance().sendPlayerMessage(player, usage);
+        ConfigurationManager.getInstance().sendPlayerMessage(player, description);
+    }
+
+    private String getKeyFix(String key) {
+        if (key.equalsIgnoreCase("create")) key = "Create";
+        else if (key.equalsIgnoreCase("destroy")) key = "Destroy";
+        else if (key.equalsIgnoreCase("select")) key = "Select";
+        else if (key.equalsIgnoreCase("unselect")) key = "UnSelect";
+        else if (key.equalsIgnoreCase("visible")) key = "Visible";
+        else if (key.equalsIgnoreCase("showbase")) key = "ShowBase";
+        else if (key.equalsIgnoreCase("gravity")) key = "Gravity";
+        else if (key.equalsIgnoreCase("showarms")) key = "ShowArms";
+        else if (key.equalsIgnoreCase("torso")) key = "Torso";
+        else if (key.equalsIgnoreCase("leftarm")) key = "LeftArm";
+        else if (key.equalsIgnoreCase("rightarm")) key = "RightArm";
+        else if (key.equalsIgnoreCase("leftleg")) key = "LeftLeg";
+        else if (key.equalsIgnoreCase("rightleg")) key = "RightLeg";
+        else if (key.equalsIgnoreCase("move")) key = "Move";
+        else if (key.equalsIgnoreCase("showname")) key = "ShowName";
+        else if (key.equalsIgnoreCase("small")) key = "Small";
+        else if (key.equalsIgnoreCase("summon")) key = "Summon";
+        else if (key.equalsIgnoreCase("copy")) key = "Copy";
+        else if (key.equalsIgnoreCase("paste")) key = "Paste";
+        else if (key.equalsIgnoreCase("body")) key = "Body";
+        else if (key.equalsIgnoreCase("head")) key = "Head";
+        else if (key.equalsIgnoreCase("setname")) key = "SetName";
+        else if (key.equalsIgnoreCase("reload")) key = "ReLoad";
+        else key = "Help";
+        return key;
     }
 }

@@ -24,14 +24,16 @@ import com.kgiservices.posablearmorstands.Configurations.ConfigurationManager;
 import com.kgiservices.posablearmorstands.Enums.Commands;
 import com.kgiservices.posablearmorstands.Enums.ConfigurationLookup;
 import com.kgiservices.posablearmorstands.Enums.LanguageLookup;
+import net.md_5.bungee.chat.SelectorComponentSerializer;
 import org.bukkit.entity.Player;
 
+import java.util.Arrays;
 import java.util.List;
 
-public class LeftArmCommand extends SubCommand {
+public class SetNameCommand extends SubCommand {
     @Override
     public Commands subCommandName() {
-        return Commands.LeftArm;
+        return Commands.SetName;
     }
 
     @Override
@@ -41,31 +43,45 @@ public class LeftArmCommand extends SubCommand {
 
     @Override
     public boolean isValid(Player player, String[] args) {
-       return isValidAngle(player, args);
+        if (!ArmorStandManager.getInstance().isArmorStandSelected(player)) {
+            ConfigurationManager.getInstance().sendPlayerMessage(player, LanguageLookup.Armor_Stand_Not_Selected);
+        } else if (!(args.length >= numberOfParameters())) {
+            ConfigurationManager.getInstance().sendPlayerMessage(player, LanguageLookup.Invalid_Name_Parameter);
+        } else {
+            String message = String.join(" ", Arrays.asList(args).subList(1, args.length).toArray(new String[]{})).toLowerCase();
+            List<String> illegalWordsList = (List<String>) ConfigurationManager.getInstance().getConfigurationValue(ConfigurationLookup.Illegal_Words_List);
+            boolean hasIllegalWords = illegalWordsList.stream().anyMatch(w -> message.contains(w.toLowerCase()));
+            if (hasIllegalWords)
+                ConfigurationManager.getInstance().sendPlayerMessage(player, LanguageLookup.Illegal_Name_Parameter);
+            else
+                return true;
+        }
+        return false;
     }
 
     @Override
     public boolean hasPermission(Player player) {
-        return player.hasPermission("posablearmorstands.pose");
+        return player.hasPermission("posablearmorstands.name");
     }
 
     @Override
     public String description(Player player) {
-        return ConfigurationManager.getInstance().getLanguageValue(player, LanguageLookup.Commands_LeftArm_Description);
+        return ConfigurationManager.getInstance().getLanguageValue(player, LanguageLookup.Commands_SetName_Description);
     }
 
     @Override
     public String usage(Player player) {
-        return ConfigurationManager.getInstance().getLanguageValue(player, LanguageLookup.Commands_LeftArm_Usage);
+        return ConfigurationManager.getInstance().getLanguageValue(player, LanguageLookup.Commands_SetName_Usage);
     }
 
     @Override
     public List<String> getParameterOneList(Player player) {
-        return (List<String>)ConfigurationManager.getInstance().getConfigurationValue(ConfigurationLookup.Parameter_Two_Degree_List);
+        return (List<String>) ConfigurationManager.getInstance().getConfigurationValue(ConfigurationLookup.Parameter_Text_List);
     }
 
     @Override
     public void Execute(Player player, String[] args) {
-        ArmorStandManager.getInstance().selectMotionPart(player, Commands.LeftArm, Double.parseDouble(args[1]));
+        String message = String.join(" ", Arrays.asList(args).subList(1, args.length).toArray(new String[]{}));
+        ArmorStandManager.getInstance().setArmorStandSetName(player, message);
     }
 }

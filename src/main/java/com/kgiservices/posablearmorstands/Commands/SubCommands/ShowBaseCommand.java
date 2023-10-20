@@ -31,7 +31,7 @@ import java.util.List;
 public class ShowBaseCommand extends SubCommand {
     @Override
     public Commands subCommandName() {
-        return Commands.Show_Base;
+        return Commands.ShowBase;
     }
 
     @Override

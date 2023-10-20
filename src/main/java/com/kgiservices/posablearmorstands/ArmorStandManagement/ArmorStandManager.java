@@ -73,6 +73,10 @@ public class ArmorStandManager {
         return location;
     }
 
+    public void reloadConfiguration() {
+        plugin.reloadConfiguration();
+
+    }
     public ArmorStand createArmorStand(Player player) {
         Location location = calculateCreateLocation(player.getLocation());
         ArmorStand armorStand = (ArmorStand) player.getWorld().spawnEntity(location, EntityType.ARMOR_STAND);
@@ -117,6 +121,11 @@ public class ArmorStandManager {
     public void setArmorStandVisibility(Player player, boolean visible) {
         selectedArmorStands.get(player.getUniqueId()).getSelectedArmorStand().setVisible(visible);
     }
+
+    public void setArmorStandSetName(Player player, String armorstandName) {
+        selectedArmorStands.get(player.getUniqueId()).getSelectedArmorStand().setCustomName(ChatColor.translateAlternateColorCodes('&', armorstandName));
+    }
+
 
     public void setArmsVisibility(Player player, boolean visible) {
         selectedArmorStands.get(player.getUniqueId()).getSelectedArmorStand().setArms(visible);
@@ -285,13 +294,13 @@ public class ArmorStandManager {
 
         } else {
             EulerAngle pose = null;
-            if (bodyPart.equals(Commands.Left_arm)) {
+            if (bodyPart.equals(Commands.LeftArm)) {
                 pose = armorStand.getLeftArmPose();
-            } else if (bodyPart.equals(Commands.Right_Arm)) {
+            } else if (bodyPart.equals(Commands.RightArm)) {
                 pose = armorStand.getRightArmPose();
-            } else if (bodyPart.equals(Commands.Left_Leg)) {
+            } else if (bodyPart.equals(Commands.LeftLeg)) {
                 pose = armorStand.getLeftLegPose();
-            } else if (bodyPart.equals(Commands.Right_Leg)) {
+            } else if (bodyPart.equals(Commands.RightLeg)) {
                 pose = armorStand.getRightLegPose();
             } else if (bodyPart.equals(Commands.Torso)) {
                 pose = armorStand.getBodyPose();
@@ -339,13 +348,13 @@ public class ArmorStandManager {
             y = Math.toRadians(y);
             z = Math.toRadians(z);
 
-            if (bodyPart.equals(Commands.Left_arm)) {
+            if (bodyPart.equals(Commands.LeftArm)) {
                 armorStand.setLeftArmPose(new EulerAngle(x, y, z));
-            } else if (bodyPart.equals(Commands.Right_Arm)) {
+            } else if (bodyPart.equals(Commands.RightArm)) {
                 armorStand.setRightArmPose(new EulerAngle(x, y, z));
-            } else if (bodyPart.equals(Commands.Left_Leg)) {
+            } else if (bodyPart.equals(Commands.LeftLeg)) {
                 armorStand.setLeftLegPose(new EulerAngle(x, y, z));
-            } else if (bodyPart.equals(Commands.Right_Leg)) {
+            } else if (bodyPart.equals(Commands.RightLeg)) {
                 armorStand.setRightLegPose(new EulerAngle(x, y, z));
             } else if (bodyPart.equals(Commands.Torso)) {
                 armorStand.setBodyPose(new EulerAngle(x, y, z));

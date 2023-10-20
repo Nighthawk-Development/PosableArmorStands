@@ -58,7 +58,8 @@ public class CommandManager implements TabExecutor {
         subCommands.add(new CopyCommand());
         subCommands.add(new PasteCommand());
         subCommands.add(new HelpCommand());
-
+        subCommands.add(new SetNameCommand());
+        subCommands.add(new ReLoadCommand());
     }
 
     @Override

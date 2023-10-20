@@ -11,7 +11,7 @@ permissions:
     description: Gives access to the select, unselect commands.
     default: op
   posablearmorstands.pose:
-   description: Gives access to the leftarm, rightarm, leftleg, rightleg, torso, showarms and showbase commands.
+   description: Gives access to the leftarm, rightarm, leftleg, rightleg, torso, showarms, showbase and help commands.
    default: op
   posablearmorstands.gravity:
    description: Gives access to the gravity command.
@@ -33,4 +33,7 @@ permissions:
     default: op
   posablearmorstands.copy:
     description: Gives access to the copy, paste commands.
+    default: op
+  posablearmorstands.admin:
+    description: Gives access to the reload commands.
     default: op

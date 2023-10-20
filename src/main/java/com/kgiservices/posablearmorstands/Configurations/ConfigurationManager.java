@@ -49,10 +49,12 @@ public class ConfigurationManager {
     private void loadPluginConfiguration() {
         plugin.getConfig().options().copyDefaults(true);
         plugin.saveDefaultConfig();
+        plugin.reloadConfig();
     }
 
 
     private void loadLanguageConfiguration() {
+        languageConfigurations.clear();
         List<String> languages = new ArrayList<String>() {
             {
                 add("en_us");

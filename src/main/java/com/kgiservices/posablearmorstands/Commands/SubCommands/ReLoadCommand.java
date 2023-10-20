@@ -22,50 +22,50 @@ import com.kgiservices.posablearmorstands.ArmorStandManagement.ArmorStandManager
 import com.kgiservices.posablearmorstands.Commands.SubCommand;
 import com.kgiservices.posablearmorstands.Configurations.ConfigurationManager;
 import com.kgiservices.posablearmorstands.Enums.Commands;
-import com.kgiservices.posablearmorstands.Enums.ConfigurationLookup;
 import com.kgiservices.posablearmorstands.Enums.LanguageLookup;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class LeftArmCommand extends SubCommand {
+public class ReLoadCommand extends SubCommand {
     @Override
     public Commands subCommandName() {
-        return Commands.LeftArm;
+        return Commands.ReLoad;
     }
 
     @Override
     public int numberOfParameters() {
-        return 2;
+        return 1;
     }
 
     @Override
     public boolean isValid(Player player, String[] args) {
-       return isValidAngle(player, args);
+        return true;
     }
 
     @Override
     public boolean hasPermission(Player player) {
-        return player.hasPermission("posablearmorstands.pose");
+        return player.hasPermission("posablearmorstands.admin");
     }
 
     @Override
     public String description(Player player) {
-        return ConfigurationManager.getInstance().getLanguageValue(player, LanguageLookup.Commands_LeftArm_Description);
+        return  ConfigurationManager.getInstance().getLanguageValue(player, LanguageLookup.Commands_ReLoad_Description);
     }
 
     @Override
     public String usage(Player player) {
-        return ConfigurationManager.getInstance().getLanguageValue(player, LanguageLookup.Commands_LeftArm_Usage);
+        return ConfigurationManager.getInstance().getLanguageValue(player, LanguageLookup.Commands_ReLoad_Usage);
     }
 
     @Override
     public List<String> getParameterOneList(Player player) {
-        return (List<String>)ConfigurationManager.getInstance().getConfigurationValue(ConfigurationLookup.Parameter_Two_Degree_List);
+        return new ArrayList<>();
     }
 
     @Override
     public void Execute(Player player, String[] args) {
-        ArmorStandManager.getInstance().selectMotionPart(player, Commands.LeftArm, Double.parseDouble(args[1]));
+        ArmorStandManager.getInstance().reloadConfiguration();
     }
 }
