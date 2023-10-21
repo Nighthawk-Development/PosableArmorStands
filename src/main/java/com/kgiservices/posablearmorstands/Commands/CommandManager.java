@@ -37,49 +37,49 @@ public class CommandManager implements TabExecutor {
     public CommandManager(PosableArmorStands plugin) {
         this.plugin = plugin;
 
-        subCommands.add(new ShowNameCommand());
-        subCommands.add(new ShowArmsCommand());
-        subCommands.add(new CreateCommand());
-        subCommands.add(new DestroyCommand());
-        subCommands.add(new SelectCommand());
-        subCommands.add(new UnSelectCommand());
-        subCommands.add(new VisibleCommand());
-        subCommands.add(new ShowBaseCommand());
-        subCommands.add(new GravityCommand());
-        subCommands.add(new LeftArmCommand());
-        subCommands.add(new RightArmCommand());
-        subCommands.add(new LeftLegCommand());
-        subCommands.add(new RightLegCommand());
-        subCommands.add(new TorsoCommand());
-        subCommands.add(new MoveCommand());
-        subCommands.add(new SummonCommand());
-        subCommands.add(new HeadCommand());
-        subCommands.add(new BodyCommand());
-        subCommands.add(new SmallCommand());
-        subCommands.add(new CopyCommand());
-        subCommands.add(new PasteCommand());
-        subCommands.add(new HelpCommand());
-        subCommands.add(new SetNameCommand());
-        subCommands.add(new ReLoadCommand());
+        subCommands.add(new BodyCommand(plugin, this));
+        subCommands.add(new CopyCommand(plugin, this));
+        subCommands.add(new CreateCommand(plugin, this));
+        subCommands.add(new DestroyCommand(plugin, this));
+        subCommands.add(new GravityCommand(plugin, this));
+        subCommands.add(new HeadCommand(plugin, this));
+        subCommands.add(new HelpCommand(plugin, this));
+        subCommands.add(new LeftArmCommand(plugin, this));
+        subCommands.add(new LeftLegCommand(plugin, this));
+        subCommands.add(new MoveCommand(plugin, this));
+        subCommands.add(new PasteCommand(plugin, this));
+        subCommands.add(new ReLoadCommand(plugin, this));
+        subCommands.add(new RightArmCommand(plugin, this));
+        subCommands.add(new RightLegCommand(plugin, this));
+        subCommands.add(new SelectCommand(plugin, this));
+        subCommands.add(new SetNameCommand(plugin, this));
+        subCommands.add(new ShowArmsCommand(plugin, this));
+        subCommands.add(new ShowBaseCommand(plugin, this));
+        subCommands.add(new ShowNameCommand(plugin, this));
+        subCommands.add(new SmallCommand(plugin, this));
+        subCommands.add(new SummonCommand(plugin, this));
+        subCommands.add(new TorsoCommand(plugin, this));
+        subCommands.add(new UnSelectCommand(plugin, this));
+        subCommands.add(new VisibleCommand(plugin, this));
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player player) {
             if (args.length > 0) {
-                for (SubCommand sub : subCommands) {
-                    if (sub.subCommandName().commandText.equalsIgnoreCase(args[0])) {
-                        if (sub.hasPermission(player)) {
-                            if (sub.isValid(player, args)) {
-                                sub.Execute(player, args);
+                for (SubCommand subCommand : subCommands) {
+                    if (subCommand.subCommandName().commandText.equalsIgnoreCase(args[0])) {
+                        if (subCommand.hasPermission(player)) {
+                            if (subCommand.isValid(player, args)) {
+                                subCommand.Execute(player, args);
                             }
                         } else {
-                            ConfigurationManager.getInstance().sendPlayerMessage(player, LanguageLookup.No_Permission_For_Command, sub.subCommandName());
+                            ConfigurationManager.getInstance().sendPlayerMessage(player, LanguageLookup.No_Permission_For_Command, subCommand.subCommandName());
                         }
                     }
                 }
             } else {
-                //TODO: Display Help page to player
+                sendPluginHelp(player);
             }
 
         }
@@ -98,10 +98,10 @@ public class CommandManager implements TabExecutor {
                 }
                 return commandList;
             } else if (args.length == 2) {
-                for (SubCommand sub : subCommands) {
-                    if (sub.subCommandName().commandText.equalsIgnoreCase(args[0])) {
-                        if (sub.hasPermission(player)) {
-                            return sub.getParameterOneList(player);
+                for (SubCommand subCommand : subCommands) {
+                    if (subCommand.subCommandName().commandText.equalsIgnoreCase(args[0])) {
+                        if (subCommand.hasPermission(player)) {
+                            return subCommand.getParameterOneList(player);
                         }
                     }
                 }
@@ -109,4 +109,23 @@ public class CommandManager implements TabExecutor {
         }
         return null;
     }
+
+    public void sendCommandHelp(Player player, String commandName) {
+        for (SubCommand subCommand : subCommands) {
+            if (subCommand.subCommandName().commandText.equalsIgnoreCase(commandName)) {
+                if (subCommand.hasPermission(player)) {
+                    subCommand.SendCommandHelp(player);
+                }
+            }
+        }
+    }
+
+    public void sendPluginHelp(Player player) {
+        for (SubCommand subCommand : subCommands) {
+            if (subCommand.hasPermission(player)) {
+                subCommand.SendCommandHelp(player);
+            }
+        }
+    }
+
 }

@@ -18,17 +18,22 @@
 
 package com.kgiservices.posablearmorstands.Commands.SubCommands;
 
+import com.kgiservices.posablearmorstands.Commands.CommandManager;
 import com.kgiservices.posablearmorstands.Commands.SubCommand;
 import com.kgiservices.posablearmorstands.Configurations.ConfigurationManager;
 import com.kgiservices.posablearmorstands.Enums.Commands;
 import com.kgiservices.posablearmorstands.Enums.LanguageLookup;
+import com.kgiservices.posablearmorstands.PosableArmorStands;
 import org.bukkit.entity.Player;
 
-import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class HelpCommand extends SubCommand {
+    public HelpCommand(PosableArmorStands plugin, CommandManager commandManager) {
+        super(plugin, commandManager);
+    }
+
     @Override
     public Commands subCommandName() {
         return Commands.Help;
@@ -69,55 +74,19 @@ public class HelpCommand extends SubCommand {
     }
 
     @Override
+    public void SendCommandHelp(Player player) {
+        sendHelp(player, this.usage(player), this.description(player));
+    }
+
+    @Override
     public void Execute(Player player, String[] args) {
-        String keyFix;
         if (args.length == 1) {
-            for (Commands command : Commands.values()) {
-                keyFix = getKeyFix(command.toString());
-                sendHelp(player,
-                        MessageFormat.format("Commands_{0}_Usage", keyFix),
-                        MessageFormat.format("Commands_{0}_Description", keyFix));
-            }
+            commandManager.sendPluginHelp(player);
         } else if (args.length == 2) {
-            keyFix = getKeyFix(args[1]);
-            sendHelp(player,
-                    MessageFormat.format("Commands_{0}_Usage", keyFix),
-                    MessageFormat.format("Commands_{0}_Description", keyFix));
+            commandManager.sendCommandHelp(player, args[1]);
         }
     }
 
-    private void sendHelp(Player player, String usageKey, String descriptionKey) {
-        String usage = ConfigurationManager.getInstance().getLanguageValue(player, LanguageLookup.valueOf(usageKey));
-        String description = " &b> " + ConfigurationManager.getInstance().getLanguageValue(player, LanguageLookup.valueOf(descriptionKey));
-        ConfigurationManager.getInstance().sendPlayerMessage(player, usage);
-        ConfigurationManager.getInstance().sendPlayerMessage(player, description);
-    }
 
-    private String getKeyFix(String key) {
-        if (key.equalsIgnoreCase("create")) key = "Create";
-        else if (key.equalsIgnoreCase("destroy")) key = "Destroy";
-        else if (key.equalsIgnoreCase("select")) key = "Select";
-        else if (key.equalsIgnoreCase("unselect")) key = "UnSelect";
-        else if (key.equalsIgnoreCase("visible")) key = "Visible";
-        else if (key.equalsIgnoreCase("showbase")) key = "ShowBase";
-        else if (key.equalsIgnoreCase("gravity")) key = "Gravity";
-        else if (key.equalsIgnoreCase("showarms")) key = "ShowArms";
-        else if (key.equalsIgnoreCase("torso")) key = "Torso";
-        else if (key.equalsIgnoreCase("leftarm")) key = "LeftArm";
-        else if (key.equalsIgnoreCase("rightarm")) key = "RightArm";
-        else if (key.equalsIgnoreCase("leftleg")) key = "LeftLeg";
-        else if (key.equalsIgnoreCase("rightleg")) key = "RightLeg";
-        else if (key.equalsIgnoreCase("move")) key = "Move";
-        else if (key.equalsIgnoreCase("showname")) key = "ShowName";
-        else if (key.equalsIgnoreCase("small")) key = "Small";
-        else if (key.equalsIgnoreCase("summon")) key = "Summon";
-        else if (key.equalsIgnoreCase("copy")) key = "Copy";
-        else if (key.equalsIgnoreCase("paste")) key = "Paste";
-        else if (key.equalsIgnoreCase("body")) key = "Body";
-        else if (key.equalsIgnoreCase("head")) key = "Head";
-        else if (key.equalsIgnoreCase("setname")) key = "SetName";
-        else if (key.equalsIgnoreCase("reload")) key = "ReLoad";
-        else key = "Help";
-        return key;
-    }
+
 }

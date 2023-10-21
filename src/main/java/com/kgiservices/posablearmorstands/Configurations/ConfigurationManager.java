@@ -21,6 +21,7 @@ package com.kgiservices.posablearmorstands.Configurations;
 import com.kgiservices.posablearmorstands.Enums.ConfigurationLookup;
 import com.kgiservices.posablearmorstands.Enums.LanguageLookup;
 import com.kgiservices.posablearmorstands.PosableArmorStands;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -110,7 +111,9 @@ public class ConfigurationManager {
     public void sendPlayerMessage(Player player, String message, Object... args) {
         player.sendMessage(MessageFormat.format(ChatColor.translateAlternateColorCodes('&', message), args));
     }
-
+    public void sendPlayerMessage(Player player, TextComponent message) {
+        player.spigot().sendMessage(message);
+    }
 
     public static ConfigurationManager getInstance() {
         return instance;

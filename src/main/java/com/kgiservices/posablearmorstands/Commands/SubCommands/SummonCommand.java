@@ -19,16 +19,22 @@
 package com.kgiservices.posablearmorstands.Commands.SubCommands;
 
 import com.kgiservices.posablearmorstands.ArmorStandManagement.ArmorStandManager;
+import com.kgiservices.posablearmorstands.Commands.CommandManager;
 import com.kgiservices.posablearmorstands.Commands.SubCommand;
 import com.kgiservices.posablearmorstands.Configurations.ConfigurationManager;
 import com.kgiservices.posablearmorstands.Enums.Commands;
 import com.kgiservices.posablearmorstands.Enums.LanguageLookup;
+import com.kgiservices.posablearmorstands.PosableArmorStands;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SummonCommand extends SubCommand {
+    public SummonCommand(PosableArmorStands plugin, CommandManager commandManager) {
+        super(plugin, commandManager);
+    }
+
     @Override
     public Commands subCommandName() {
         return Commands.Summon;
@@ -65,6 +71,11 @@ public class SummonCommand extends SubCommand {
     @Override
     public List<String> getParameterOneList(Player player) {
         return new ArrayList<>();
+    }
+
+    @Override
+    public void SendCommandHelp(Player player) {
+        sendHelp(player, this.usage(player), this.description(player));
     }
 
     @Override

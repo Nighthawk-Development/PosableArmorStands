@@ -19,16 +19,22 @@
 package com.kgiservices.posablearmorstands.Commands.SubCommands;
 
 import com.kgiservices.posablearmorstands.ArmorStandManagement.ArmorStandManager;
+import com.kgiservices.posablearmorstands.Commands.CommandManager;
 import com.kgiservices.posablearmorstands.Commands.SubCommand;
 import com.kgiservices.posablearmorstands.Configurations.ConfigurationManager;
 import com.kgiservices.posablearmorstands.Enums.Commands;
 import com.kgiservices.posablearmorstands.Enums.LanguageLookup;
+import com.kgiservices.posablearmorstands.PosableArmorStands;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DestroyCommand extends SubCommand {
+    public DestroyCommand(PosableArmorStands plugin, CommandManager commandManager) {
+        super(plugin, commandManager);
+    }
+
     @Override
     public Commands subCommandName() {
         return Commands.Destroy;
@@ -41,15 +47,7 @@ public class DestroyCommand extends SubCommand {
 
     @Override
     public boolean isValid(Player player, String[] args) {
-        if (!ArmorStandManager.getInstance().isArmorStandSelected(player)) {
-            ConfigurationManager.getInstance().sendPlayerMessage(player, LanguageLookup.Armor_Stand_Not_Selected);
-        } else if (numberOfParameters() != args.length ) {
-            ConfigurationManager.getInstance().sendPlayerMessage(player, LanguageLookup.Invalid_Parameter_Count_Zero, this.subCommandName().commandText);
-            ConfigurationManager.getInstance().sendPlayerMessage(player, this.usage(player));
-        } else {
-            return true;
-        }
-        return false;
+        return isValidSelectedZeroParameters(player, args);
     }
 
     @Override
@@ -72,6 +70,10 @@ public class DestroyCommand extends SubCommand {
         return new ArrayList<>();
     }
 
+    @Override
+    public void SendCommandHelp(Player player) {
+        sendHelp(player, this.usage(player), this.description(player));
+    }
     @Override
     public void Execute(Player player, String[] args) {
         ArmorStandManager.getInstance().destroySelectArmorStand(player);

@@ -19,17 +19,23 @@
 package com.kgiservices.posablearmorstands.Commands.SubCommands;
 
 import com.kgiservices.posablearmorstands.ArmorStandManagement.ArmorStandManager;
+import com.kgiservices.posablearmorstands.Commands.CommandManager;
 import com.kgiservices.posablearmorstands.Commands.SubCommand;
 import com.kgiservices.posablearmorstands.Enums.Commands;
 import com.kgiservices.posablearmorstands.Enums.ConfigurationLookup;
 import com.kgiservices.posablearmorstands.Configurations.ConfigurationManager;
 import com.kgiservices.posablearmorstands.Enums.LanguageLookup;
+import com.kgiservices.posablearmorstands.PosableArmorStands;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MoveCommand extends SubCommand {
+    public MoveCommand(PosableArmorStands plugin, CommandManager commandManager) {
+        super(plugin, commandManager);
+    }
+
     @Override
     public Commands subCommandName() {
         return Commands.Move;
@@ -82,6 +88,11 @@ public class MoveCommand extends SubCommand {
         String parameter = ConfigurationManager.getInstance().getConfigurationValue(ConfigurationLookup.Parameter_Two_Move_List, ConfigurationManager.getInstance().getConfigurationValue(ConfigurationLookup.Move_Limit));
         optionList.add(parameter);
         return optionList;
+    }
+
+    @Override
+    public void SendCommandHelp(Player player) {
+        sendHelp(player, this.usage(player), this.description(player));
     }
 
     @Override

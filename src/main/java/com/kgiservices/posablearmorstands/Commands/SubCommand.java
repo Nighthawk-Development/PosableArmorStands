@@ -22,11 +22,25 @@ import com.kgiservices.posablearmorstands.ArmorStandManagement.ArmorStandManager
 import com.kgiservices.posablearmorstands.Configurations.ConfigurationManager;
 import com.kgiservices.posablearmorstands.Enums.Commands;
 import com.kgiservices.posablearmorstands.Enums.LanguageLookup;
+import com.kgiservices.posablearmorstands.PosableArmorStands;
+import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
+import net.md_5.bungee.api.chat.HoverEvent;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.entity.Player;
 
 import java.util.List;
 
 public abstract class SubCommand {
+
+    protected final PosableArmorStands plugin;
+    protected final CommandManager commandManager;
+
+    protected SubCommand(PosableArmorStands plugin, CommandManager commandManager) {
+        this.plugin = plugin;
+        this.commandManager = commandManager;
+    }
 
     public abstract Commands subCommandName();
 
@@ -41,7 +55,7 @@ public abstract class SubCommand {
     public abstract String usage(Player player);
 
     public abstract List<String> getParameterOneList (Player player);
-
+    public abstract void SendCommandHelp(Player player);
     public abstract void Execute(Player player, String[] args);
 
     public boolean isValidAngle(Player player, String[] args) {
@@ -80,4 +94,26 @@ public abstract class SubCommand {
         }
         return false;
     }
+
+    public boolean isValidSelectedZeroParameters(Player player, String[] args) {
+        if (!ArmorStandManager.getInstance().isArmorStandSelected(player)) {
+            ConfigurationManager.getInstance().sendPlayerMessage(player, LanguageLookup.Armor_Stand_Not_Selected);
+        } else if (numberOfParameters() != args.length ) {
+            ConfigurationManager.getInstance().sendPlayerMessage(player, LanguageLookup.Invalid_Parameter_Count_Zero, this.subCommandName().commandText);
+            ConfigurationManager.getInstance().sendPlayerMessage(player, this.usage(player));
+        } else {
+            return true;
+        }
+        return false;
+    }
+
+    public void sendHelp(Player player, String usageString, String descriptionString) {
+        TextComponent usage = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', usageString)));
+        usage.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://www.spigotmc.org"));
+        usage.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Visit the plugin site for full documentation.").create()));
+        TextComponent description = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&'," &b> " + descriptionString)));
+        ConfigurationManager.getInstance().sendPlayerMessage(player, usage);
+        ConfigurationManager.getInstance().sendPlayerMessage(player, description);
+    }
+
 }

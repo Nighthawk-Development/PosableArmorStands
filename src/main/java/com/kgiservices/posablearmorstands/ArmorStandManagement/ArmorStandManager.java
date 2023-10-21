@@ -56,7 +56,7 @@ public class ArmorStandManager {
         int newYaw = 0;
         int yaw = (int) location.getYaw();
         if (yaw > 135 || yaw < -135) { //Facing north
-            newYaw = 0;
+            //newYaw = 0;
             location.setZ(location.getZ() - distance);
         } else if (yaw < 45 && yaw >= 0 || yaw > -45 && yaw <= 0) { //facing south
             newYaw = 180;
@@ -278,13 +278,13 @@ public class ArmorStandManager {
                 if (yaw + degrees >= 360) {
                     yaw -= 360;
                 }
-                yaw += degrees;
+                yaw += (float)degrees;
 
             } else if (material.equals(selectedArmorStand.getPlayerToolMinusX())) {
                 if (yaw - degrees <= 0) {
                     yaw -= 360;
                 }
-                yaw -= degrees;
+                yaw -= (float)degrees;
             }
 
             yaw -= 180;
@@ -292,7 +292,7 @@ public class ArmorStandManager {
             armorStand.teleport(location);
 
         } else {
-            EulerAngle pose = null;
+            EulerAngle pose = new EulerAngle(0,0,0);
             if (bodyPart.equals(Commands.LeftArm)) {
                 pose = armorStand.getLeftArmPose();
             } else if (bodyPart.equals(Commands.RightArm)) {

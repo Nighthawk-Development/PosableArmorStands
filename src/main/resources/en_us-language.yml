@@ -1,76 +1,76 @@
 commands:
+  body:
+    description: '&fRotates the whole body of the currently selected Armor Stand.'
+    usage: '&b/pa body &e[degrees]'
+  copy:
+    description: '&fCopies the currently selected Armor Stand pose settings.'
+    usage: '&b/pa copy'
   create:
     description: '&fCreates an Armor Stand in front of player.'
     usage: '&b/pa create'
   destroy:
     description: '&fDestroy the selected Armor Stand.'
     usage: '&b/pa destroy'
+  gravity:
+    description: '&fSets gravity for the currently selected Armor Stand.'
+    usage: '&b/pa gravity &e[true/false]'
+  head:
+    description: '&fMoves the head of the currently selected Armor Stand.'
+    usage: '&b/pa head &e[degrees]'
+  help:
+    description: '&fDisplays general help or help for a specific command.'
+    usage: '&b/pa help &e[command?]'
+  leftarm:
+    description: '&fMoves the leftarm of the currently selected Armor Stand a number of degrees.'
+    usage: '&b/pa leftarm &e[degrees]'
+  leftleg:
+    description: '&fMoves the lefleg of the currently selected Armor Stand.'
+    usage: '&b/pa leftleg &e[degrees]'
+  move:
+    description: '&fMoves the currently selected Armor Stand.'
+    usage: '&b/pa move &e[distance <= {0}'
+  paste:
+    description: '&fPastes the copied pose settings to the currently selected Armor Stand.'
+    usage: '&b/pa paste'
+  reload:
+    description: '&fReloads the configuration and language files.'
+    usage: '&b/pa reload'
+  rightarm:
+    description: '&fMoves the rightarm of the currently selected Armor Stand.'
+    usage: '&b/pa rightarm &e[degrees]'
+  rightleg:
+    description: '&fMoves the rightleg of the currently selected Armor Stand.'
+    usage: '&b/pa rightleg &e[degrees]'
   select:
     description: '&fSelects the Armor Stand targeted by the player.'
     usage: '&b/pa select'
+  setname:
+    description: '&fSets the name plate for the currently selected Armor Stand.'
+    usage: '&b/pa setname &e[text of name]'
+  showarms:
+    description: '&fSets the arms visibility for the currently selected Armor Stand.'
+    usage: '&b/pa showarms &e[true/false]'
+  showbase:
+    description: '&fSets the base plate visibility for the currently selected Armor Stand.'
+    usage: '&b/pa showbase &e[true/false]'
+  showname:
+    description: '&fSets the name visibility for the currently selected Armor Stand.'
+    usage: '&b/pa showname &e[true/false]'
+  small:
+    description: '&fSet whether the currently selected Armor Stand is small.'
+    usage: '&b/pa small &e[true/false]'
+  summon:
+    description: '&fSummons the currently selected Armor Stand to it''s former location.'
+    usage: '&b/pa summon'
+  torso:
+    description: '&fMoves the torso of the currently selected Armor Stand.'
+    usage: '&b/pa torso [degrees]'
   unselect:
     description: '&fUnselects the current selected Armor Stand.'
     usage: '&b/pa unselect'
   visible:
     description: '&fSets the visibility for the currently selected Armor Stand.'
     usage: '&b/pa visible &e[true/false]'
-  showbase:
-    description: '&fSets the base plate visibility for the currently selected Armor Stand.'
-    usage: '&b/pa showbase &e[true/false]'
-  setname:
-    description: '&fSets the name plate for the currently selected Armor Stand.'
-    usage: '&b/pa setname &e[text of name]'
-  gravity:
-    description: '&fSets gravity for the currently selected Armor Stand.'
-    usage: '&b/pa gravity &e[true/false]'
-  showname:
-    description: '&fSets the name visibility for the currently selected Armor Stand.'
-    usage: '&b/pa showname &e[true/false]'
-  showarms:
-    description: '&fSets the arms visibility for the currently selected Armor Stand.'
-    usage: '&b/pa showarms &e[true/false]'
-  leftarm:
-    description: '&fMoves the leftarm of the currently selected Armor Stand a number of degrees.'
-    usage: '&b/pa leftarm &e[degrees]'
-  rightarm:
-    description: '&fMoves the rightarm of the currently selected Armor Stand.'
-    usage: '&b/pa rightarm &e[degrees]'
-  leftleg:
-    description: '&fMoves the lefleg of the currently selected Armor Stand.'
-    usage: '&b/pa leftleg &e[degrees]'
-  rightleg:
-    description: '&fMoves the rightleg of the currently selected Armor Stand.'
-    usage: '&b/pa rightleg &e[degrees]'
-  torso:
-    description: '&fMoves the torso of the currently selected Armor Stand.'
-    usage: '&b/pa torso [degrees]'
-  move:
-    description: '&fMoves the currently selected Armor Stand.'
-    usage: '&b/pa move &e[distance <= {0}'
-  summon:
-    description: '&fSummons the currently selected Armor Stand to it''s former location.'
-    usage: '&b/pa summon'
-  body:
-    description: '&fRotates the whole body of the currently selected Armor Stand.'
-    usage: '&b/pa body &e[degrees]'
-  head:
-    description: '&fMoves the head of the currently selected Armor Stand.'
-    usage: '&b/pa head &e[degrees]'
-  small:
-    description: '&fSet whether the currently selected Armor Stand is small.'
-    usage: '&b/pa small &e[true/false]'
-  copy:
-    description: '&fCopies the currently selected Armor Stand pose settings.'
-    usage: '&b/pa copy'
-  paste:
-    description: '&fPastes the copied pose settings to the currently selected Armor Stand.'
-    usage: '&b/pa paste'
-  help:
-    description: '&fDisplays general help or help for a specific command.'
-    usage: '&b/pa help &e[command?]'
-  reload:
-    description: '&fReloads the configuration and language files.'
-    usage: '&b/pa reload'
 
 errors:
   armor-stand-not-selected: 'You must select an armor stand to perform this action.'
