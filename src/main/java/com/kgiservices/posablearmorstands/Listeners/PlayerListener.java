@@ -22,8 +22,6 @@ import com.kgiservices.posablearmorstands.ArmorStandManagement.ArmorStandManager
 import com.kgiservices.posablearmorstands.PosableArmorStands;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerBedLeaveEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 

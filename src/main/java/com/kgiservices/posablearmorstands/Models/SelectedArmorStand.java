@@ -42,7 +42,7 @@ public class SelectedArmorStand {
         return degrees;
     }
 
-    ArmorStand selectedArmorStand;
+    final ArmorStand selectedArmorStand;
     Material playerToolMinusX;
     Material playerToolPlusX;
     Material playerToolMinusY;

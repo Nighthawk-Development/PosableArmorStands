@@ -32,7 +32,7 @@ public abstract class SubCommand {
 
     public abstract int numberOfParameters();
 
-    public abstract boolean isValid(Player player, String args[]);
+    public abstract boolean isValid(Player player, String[] args);
 
     public abstract boolean hasPermission(Player player);
 
@@ -42,7 +42,7 @@ public abstract class SubCommand {
 
     public abstract List<String> getParameterOneList (Player player);
 
-    public abstract void Execute(Player player, String args[]);
+    public abstract void Execute(Player player, String[] args);
 
     public boolean isValidAngle(Player player, String[] args) {
         if (!ArmorStandManager.getInstance().isArmorStandSelected(player)) {

@@ -38,8 +38,8 @@ import java.util.*;
 public class ArmorStandManager {
     private final PosableArmorStands plugin;
     private static ArmorStandManager instance;
-    private Hashtable<UUID, SelectedArmorStand> selectedArmorStands = new Hashtable<UUID, SelectedArmorStand>();
-    private Hashtable<UUID, SelectedArmorStand> copiedArmorStands = new Hashtable<UUID, SelectedArmorStand>();
+    private final Hashtable<UUID, SelectedArmorStand> selectedArmorStands = new Hashtable<>();
+    private final Hashtable<UUID, SelectedArmorStand> copiedArmorStands = new Hashtable<>();
 
     public ArmorStandManager(PosableArmorStands plugin) {
         this.plugin = plugin;
@@ -79,8 +79,7 @@ public class ArmorStandManager {
     }
     public ArmorStand createArmorStand(Player player) {
         Location location = calculateCreateLocation(player.getLocation());
-        ArmorStand armorStand = (ArmorStand) player.getWorld().spawnEntity(location, EntityType.ARMOR_STAND);
-        return armorStand;
+        return (ArmorStand) player.getWorld().spawnEntity(location, EntityType.ARMOR_STAND);
     }
 
 
@@ -162,14 +161,14 @@ public class ArmorStandManager {
     }
 
     public void unCopyArmorStand(Player player) {
-        ArmorStand armorStand = copiedArmorStands.get(player.getUniqueId()).getSelectedArmorStand();
+        //ArmorStand armorStand = copiedArmorStands.get(player.getUniqueId()).getSelectedArmorStand();
         copiedArmorStands.remove(player.getUniqueId());
     }
 
 
     public void selectMotionPart(Player player, Commands bodyPart, double degrees) {
         SelectedArmorStand selectedArmorStand = selectedArmorStands.get(player.getUniqueId());
-        ArmorStand armorStand = selectedArmorStand.getSelectedArmorStand();
+        //ArmorStand armorStand = selectedArmorStand.getSelectedArmorStand();
         if (degrees == -1) {
             selectedArmorStand.clearSelectedBodyPart();
         } else {
@@ -210,7 +209,7 @@ public class ArmorStandManager {
 
     public void selectRotationPart(Player player, Commands bodyPart, double degrees) {
         SelectedArmorStand selectedArmorStand = selectedArmorStands.get(player.getUniqueId());
-        ArmorStand armorStand = selectedArmorStand.getSelectedArmorStand();
+        //ArmorStand armorStand = selectedArmorStand.getSelectedArmorStand();
         if (degrees == -1) {
             selectedArmorStand.clearSelectedBodyPart();
         } else {

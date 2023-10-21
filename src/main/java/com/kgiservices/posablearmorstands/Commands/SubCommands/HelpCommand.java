@@ -41,11 +41,7 @@ public class HelpCommand extends SubCommand {
 
     @Override
     public boolean isValid(Player player, String[] args) {
-        if (args.length >= numberOfParameters()) {
-
-            return true;
-        }
-        return false;
+        return args.length >= numberOfParameters();
     }
 
     @Override
@@ -74,7 +70,7 @@ public class HelpCommand extends SubCommand {
 
     @Override
     public void Execute(Player player, String[] args) {
-        String keyFix = "";
+        String keyFix;
         if (args.length == 1) {
             for (Commands command : Commands.values()) {
                 keyFix = getKeyFix(command.toString());

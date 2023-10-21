@@ -32,10 +32,11 @@ import java.util.List;
 
 public class CommandManager implements TabExecutor {
     private final PosableArmorStands plugin;
-    private ArrayList<SubCommand> subCommands = new ArrayList<>();
+    private final ArrayList<SubCommand> subCommands = new ArrayList<>();
 
     public CommandManager(PosableArmorStands plugin) {
         this.plugin = plugin;
+
         subCommands.add(new ShowNameCommand());
         subCommands.add(new ShowArmsCommand());
         subCommands.add(new CreateCommand());

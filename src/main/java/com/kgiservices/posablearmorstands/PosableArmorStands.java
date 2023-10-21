@@ -29,17 +29,15 @@ import java.util.logging.Level;
 
 public final class PosableArmorStands extends JavaPlugin {
 
-    private static PosableArmorStands plugin;
     @Override
     public void onEnable() {
-        this.plugin = this;
         getCommand("PosableArmorStands").setExecutor(new CommandManager(this));
         //getCommand("PosableArmorStands").setTabCompleter(new PosableArmorStandTabComplete(this));
         getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
         getServer().getPluginManager().registerEvents(new EntityListener(this), this);
         new ArmorStandManager(this);
         reloadConfiguration();
-        plugin.getLogger().log(Level.INFO, plugin.getDescription().getVersion() + " finished loading.");
+        this.getLogger().log(Level.INFO, this.getDescription().getVersion() + " finished loading.");
     }
 
     @Override

@@ -29,6 +29,7 @@ import org.bukkit.entity.Player;
 import java.util.List;
 
 public class BodyCommand extends SubCommand {
+
     @Override
     public Commands subCommandName() {
         return Commands.Body;

@@ -19,7 +19,6 @@
 package com.kgiservices.posablearmorstands.Listeners;
 
 import com.kgiservices.posablearmorstands.ArmorStandManagement.ArmorStandManager;
-import com.kgiservices.posablearmorstands.Models.SelectedArmorStand;
 import com.kgiservices.posablearmorstands.PosableArmorStands;
 import org.bukkit.Material;
 import org.bukkit.entity.ArmorStand;

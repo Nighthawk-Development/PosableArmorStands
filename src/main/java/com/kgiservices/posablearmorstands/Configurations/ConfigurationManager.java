@@ -36,7 +36,7 @@ import java.util.List;
 
 public class ConfigurationManager {
     private final PosableArmorStands  plugin;
-    private Hashtable<String, YamlConfiguration> languageConfigurations = new Hashtable<String, YamlConfiguration>();
+    private final Hashtable<String, YamlConfiguration> languageConfigurations = new Hashtable<>();
     private static ConfigurationManager instance;
 
     public ConfigurationManager(PosableArmorStands plugin) {
@@ -55,7 +55,7 @@ public class ConfigurationManager {
 
     private void loadLanguageConfiguration() {
         languageConfigurations.clear();
-        List<String> languages = new ArrayList<String>() {
+        List<String> languages = new ArrayList<>() {
             {
                 add("en_us");
             }

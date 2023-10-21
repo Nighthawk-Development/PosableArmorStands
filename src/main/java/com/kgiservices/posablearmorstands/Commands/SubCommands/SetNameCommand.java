@@ -24,7 +24,6 @@ import com.kgiservices.posablearmorstands.Configurations.ConfigurationManager;
 import com.kgiservices.posablearmorstands.Enums.Commands;
 import com.kgiservices.posablearmorstands.Enums.ConfigurationLookup;
 import com.kgiservices.posablearmorstands.Enums.LanguageLookup;
-import net.md_5.bungee.chat.SelectorComponentSerializer;
 import org.bukkit.entity.Player;
 
 import java.util.Arrays;

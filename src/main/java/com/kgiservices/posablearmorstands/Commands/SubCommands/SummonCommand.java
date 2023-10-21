@@ -43,9 +43,7 @@ public class SummonCommand extends SubCommand {
     public boolean isValid(Player player, String[] args) {
         if (!ArmorStandManager.getInstance().isArmorStandSelected(player)) {
             ConfigurationManager.getInstance().sendPlayerMessage(player, LanguageLookup.Armor_Stand_Not_Selected);
-        } else if (args.length == numberOfParameters()) {
-            return true;
-        }
+        } else return args.length == numberOfParameters();
         return false;
     }
 
