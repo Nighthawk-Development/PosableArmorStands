@@ -23,8 +23,10 @@ import com.kgiservices.posablearmorstands.Commands.CommandManager;
 import com.kgiservices.posablearmorstands.Commands.SubCommand;
 import com.kgiservices.posablearmorstands.Configurations.ConfigurationManager;
 import com.kgiservices.posablearmorstands.Enums.Commands;
+import com.kgiservices.posablearmorstands.Enums.ConfigurationLookup;
 import com.kgiservices.posablearmorstands.Enums.LanguageLookup;
 import com.kgiservices.posablearmorstands.PosableArmorStands;
+import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -77,6 +79,9 @@ public class CreateCommand extends SubCommand {
 
     @Override
     public void Execute(Player player, String[] args) {
-        ArmorStandManager.getInstance().createArmorStand(player);
+        ArmorStand armorStand = ArmorStandManager.getInstance().createArmorStand(player);
+        if ((boolean) ConfigurationManager.getInstance().getConfigurationValue(ConfigurationLookup.Create_Auto_Select)) {
+            ArmorStandManager.getInstance().selectArmorStand(player, armorStand);
+        }
     }
 }

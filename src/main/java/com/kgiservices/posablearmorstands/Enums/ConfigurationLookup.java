@@ -21,6 +21,7 @@ package com.kgiservices.posablearmorstands.Enums;
 public enum ConfigurationLookup {
     Create_Default_Elevation("create.default-elevation"),
     Create_Default_Distance("create.default-distance"),
+    Create_Auto_Select("create.auto-select"),
     Move_Limit("move.distance-limit"),
     Select_Distance("select.distance"),
     Parameter_Two_TF_List ("parameter-two-tf-list"),

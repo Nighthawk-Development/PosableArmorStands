@@ -50,6 +50,7 @@ parameter-text-list:
 create:
   default-elevation: 0.0
   default-distance: 2.0
+  auto-select: true
 
 move:
   distance-limit: 1.0
