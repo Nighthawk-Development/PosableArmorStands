@@ -109,7 +109,7 @@ public abstract class SubCommand {
 
     public void sendHelp(Player player, String usageString, String descriptionString) {
         TextComponent usage = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', usageString)));
-        usage.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://www.spigotmc.org"));
+        usage.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://www.spigotmc.org/resources/posablearmorstands.113196/field?field=documentation"));
         usage.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Visit the plugin site for full documentation.").create()));
         TextComponent description = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&'," &b> " + descriptionString)));
         ConfigurationManager.getInstance().sendPlayerMessage(player, usage);

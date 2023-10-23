@@ -1,38 +1,39 @@
 
 #Commands
+# pa body [degrees]
+# pa copy
 # pa create
 # pa destroy
-# pa select
-# pa unselect
-# pa visible [true/false]
-# pa showbase [true/false]
 # pa gravity [true/false]
-# pa showarms [true/flase]
-# pa torso [degrees]
+# pa head [degrees]
+# pa help [command?]
 # pa leftarm [degrees]
-# pa rightarm [degrees]
 # pa leftleg [degrees]
-# pa rightleg [degrees]
 # pa move [x] [y] [z]
+# pa paste pa select
+# pa reload
+# pa rightarm [degrees]
+# pa rightleg [degrees]
+# pa select
+# pa setname
+# pa showarms [true/flase]
+# pa showbase [true/false]
 # pa showname [true/flase]
 # pa small [true/flase]
 # pa summon
-# pa copy
-# pa paste
-# pa body [degrees]
-# pa setname [name]
-# pa help [command?]
-# pa reload
+# pa torso [degrees]
+# pa unselect
+# pa visible [true/false]
 
-# posablearmorstands.use (select, unselect, help, reload)
-# posablearmorstands.pose (showbase, leftarm, rightarm, leftleg, rightleg, torso, showarms)
+# posablearmorstands.pose (select, unselect, showarms, leftarm, rightarm, leftleg, rightleg, torso, head, help)
 # posablearmorstands.gravity (gravity)
-# posablearmorstands.visible (visibible)
+# posablearmorstands.visible (visible, showbase)
 # posablearmorstands.move (move, position)
 # posablearmorstands.create (create, destroy)
 # posablearmorstands.name (showname, setname)
 # posablearmorstands.small (small)
 # posablearmorstands.copy (copy, paste)
+# posablearmorstands.admin (reload)
 
 
 parameter-two-tf-list:

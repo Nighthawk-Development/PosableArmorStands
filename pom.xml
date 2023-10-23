@@ -6,7 +6,7 @@
 
     <groupId>com.kgiservices</groupId>
     <artifactId>PosableArmorStands</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.2.2</version>
     <packaging>jar</packaging>
 
     <name>PosableArmorStands</name>
@@ -48,10 +48,11 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>2.3.1</version>
                 <configuration>
-                    <!--
+
                     <outputDirectory>\\wsl.localhost\Ubuntu-22.04\home\kgrear\temp\testserver\plugins</outputDirectory>
-                    -->
+                   <!--
                     <outputDirectory>\\wsl.localhost\Ubuntu\home\kgrear\temp\testserver\plugins</outputDirectory>
+                    -->
                 </configuration>
             </plugin>
         </plugins>

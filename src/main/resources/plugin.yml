@@ -7,17 +7,14 @@ commands:
     description: Minipulate Armor Stands
     aliases: [ pas, pa, as ]
 permissions:
-  posablearmorstands.use:
-    description: Gives access to the select, unselect commands.
-    default: op
   posablearmorstands.pose:
-   description: Gives access to the leftarm, rightarm, leftleg, rightleg, torso, showarms, showbase and help commands.
+   description: Gives access to the select, unselect, showarms, leftarm, rightarm, leftleg, rightleg, torso, head, help commands.
    default: op
   posablearmorstands.gravity:
    description: Gives access to the gravity command.
    default: op
   posablearmorstands.visible:
-   description: Gives access to the visibible command.
+   description: Gives access to the visible, showbase command.
    default: op
   posablearmorstands.move:
     description: Gives access to the move command.

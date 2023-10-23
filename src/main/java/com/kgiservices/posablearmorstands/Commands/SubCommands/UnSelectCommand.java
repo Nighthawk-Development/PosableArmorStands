@@ -52,7 +52,7 @@ public class UnSelectCommand extends SubCommand {
 
     @Override
     public boolean hasPermission(Player player) {
-        return player.hasPermission("posablearmorstands.use");
+        return player.hasPermission("posablearmorstands.pose");
     }
 
     @Override
