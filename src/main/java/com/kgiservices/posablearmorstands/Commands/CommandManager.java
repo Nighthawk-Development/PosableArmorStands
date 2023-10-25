@@ -31,11 +31,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CommandManager implements TabExecutor {
-    private final PosableArmorStands plugin;
+
     private final ArrayList<SubCommand> subCommands = new ArrayList<>();
 
     public CommandManager(PosableArmorStands plugin) {
-        this.plugin = plugin;
 
         subCommands.add(new BodyCommand(plugin, this));
         subCommands.add(new CopyCommand(plugin, this));

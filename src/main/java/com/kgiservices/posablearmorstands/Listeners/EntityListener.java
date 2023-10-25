@@ -19,7 +19,6 @@
 package com.kgiservices.posablearmorstands.Listeners;
 
 import com.kgiservices.posablearmorstands.ArmorStandManagement.ArmorStandManager;
-import com.kgiservices.posablearmorstands.PosableArmorStands;
 import org.bukkit.Material;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Player;
@@ -28,12 +27,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
 public class EntityListener implements Listener {
-
-    private final PosableArmorStands plugin;
-
-    public EntityListener(PosableArmorStands plugin) {
-        this.plugin = plugin;
-    }
 
     @EventHandler
     public void onEntityDamageByEntity (EntityDamageByEntityEvent event) {

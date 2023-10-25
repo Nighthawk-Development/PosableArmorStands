@@ -77,8 +77,8 @@ public enum LanguageLookup {
     Invalid_Angle_Parameter("errors.invalid-angle-parameter"),
     Invalid_Boolean_Parameter("errors.invalid-boolean-parameter"),
     No_Permission_For_Command("errors.no-permission-for-command"),
-    Invalid_Items_Slot6("errors.invalid-items-slot6"),
-    Invalid_Items_Slot2("errors.invalid-items-slot2"),
+    Invalid_Items_Slot6("errors.invalid-items-slots6"),
+    Invalid_Items_Slot2("errors.invalid-items-slots2"),
     Invalid_Distance_Parameter("errors.invalid-distance-parameter"),
     Invalid_Name_Parameter("errors.invalid-name-parameter"),
     Illegal_Name_Parameter("errors.illegal-name-parameter");

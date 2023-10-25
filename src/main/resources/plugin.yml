@@ -1,7 +1,7 @@
 name: PosableArmorStands
 version: '${project.version}'
 main: com.kgiservices.posablearmorstands.PosableArmorStands
-api-version: '1.20'
+api-version: '1.17'
 commands:
   PosableArmorStands:
     description: Minipulate Armor Stands

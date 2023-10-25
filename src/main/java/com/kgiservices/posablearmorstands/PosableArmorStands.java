@@ -32,9 +32,8 @@ public final class PosableArmorStands extends JavaPlugin {
     @Override
     public void onEnable() {
         getCommand("PosableArmorStands").setExecutor(new CommandManager(this));
-        //getCommand("PosableArmorStands").setTabCompleter(new PosableArmorStandTabComplete(this));
-        getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
-        getServer().getPluginManager().registerEvents(new EntityListener(this), this);
+        getServer().getPluginManager().registerEvents(new PlayerListener(), this);
+        getServer().getPluginManager().registerEvents(new EntityListener(), this);
         new ArmorStandManager(this);
         reloadConfiguration();
         this.getLogger().log(Level.INFO, this.getDescription().getVersion() + " finished loading.");

@@ -25,9 +25,9 @@ import com.kgiservices.posablearmorstands.Enums.LanguageLookup;
 import com.kgiservices.posablearmorstands.PosableArmorStands;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.ClickEvent;
-import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
+import net.md_5.bungee.api.chat.hover.content.Text;
 import org.bukkit.entity.Player;
 
 import java.util.List;
@@ -110,7 +110,7 @@ public abstract class SubCommand {
     public void sendHelp(Player player, String usageString, String descriptionString) {
         TextComponent usage = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', usageString)));
         usage.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://www.spigotmc.org/resources/posablearmorstands.113196/field?field=documentation"));
-        usage.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Visit the plugin site for full documentation.").create()));
+        usage.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text("Visit the plugin site for full documentation.")));
         TextComponent description = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&'," &b> " + descriptionString)));
         ConfigurationManager.getInstance().sendPlayerMessage(player, usage);
         ConfigurationManager.getInstance().sendPlayerMessage(player, description);
