@@ -1,4 +1,4 @@
-package com.kgiservices.posablearmorstands.bStats;
+package com.kgiservices.posablearmorstands.Utilities;
 
 /*
  * This Metrics class was auto-generated and can be copied into your project if you are

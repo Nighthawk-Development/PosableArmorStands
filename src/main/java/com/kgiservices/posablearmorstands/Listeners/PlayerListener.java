@@ -19,18 +19,43 @@
 package com.kgiservices.posablearmorstands.Listeners;
 
 import com.kgiservices.posablearmorstands.ArmorStandManagement.ArmorStandManager;
+import com.kgiservices.posablearmorstands.Configurations.ConfigurationManager;
+import com.kgiservices.posablearmorstands.PosableArmorStands;
+import com.kgiservices.posablearmorstands.Utilities.UpdateChecker;
+import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.HoverEvent;
+import net.md_5.bungee.api.chat.TextComponent;
+import net.md_5.bungee.api.chat.hover.content.Text;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-public class PlayerListener implements Listener {
+import java.util.concurrent.atomic.AtomicReference;
 
+public class PlayerListener implements Listener {
+    public PlayerListener(PosableArmorStands plugin) {
+        this.plugin = plugin;
+    }
+
+    private final PosableArmorStands plugin;
     @EventHandler
     public void onPlayerJoin (PlayerJoinEvent event) {
         if (ArmorStandManager.getInstance().isArmorStandSelected(event.getPlayer()))
         {
             ArmorStandManager.getInstance().unSelectArmorStand(event.getPlayer());
+        }
+        if (event.getPlayer().isOp())
+        {
+            new UpdateChecker(plugin, 113196).getVersion(version -> {
+                String currentVersion = plugin.getDescription().getVersion();
+                if (!currentVersion.equals(version)) {
+                    String url = "https://www.spigotmc.org/resources/posablearmorstands.113196";
+                    String versionString = "[&9PosableArmorStands&r] Version &e" + version + "&r is now available at \n&e" + url + "&r";
+                    ConfigurationManager.getInstance().SendPlayerClickableURL(event.getPlayer(), versionString, "&5Click here for download.&r","" ,url);
+                }
+            });
         }
     }
 

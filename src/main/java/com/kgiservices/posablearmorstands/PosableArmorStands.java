@@ -23,25 +23,28 @@ import com.kgiservices.posablearmorstands.Commands.CommandManager;
 import com.kgiservices.posablearmorstands.Configurations.ConfigurationManager;
 import com.kgiservices.posablearmorstands.Listeners.EntityListener;
 import com.kgiservices.posablearmorstands.Listeners.PlayerListener;
-import com.kgiservices.posablearmorstands.bStats.Metrics;
+import com.kgiservices.posablearmorstands.Utilities.Metrics;
+import com.kgiservices.posablearmorstands.Utilities.UpdateChecker;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitTask;
 
-import java.util.logging.Level;
+import java.util.concurrent.atomic.AtomicReference;
 
 public final class PosableArmorStands extends JavaPlugin {
 
     @Override
     public void onEnable() {
         getCommand("PosableArmorStands").setExecutor(new CommandManager(this));
-        getServer().getPluginManager().registerEvents(new PlayerListener(), this);
+        getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
         getServer().getPluginManager().registerEvents(new EntityListener(), this);
         new ArmorStandManager(this);
         reloadConfiguration();
 
         int pluginId = 	20150;
         Metrics metrics = new Metrics(this, pluginId);
+
 
         Bukkit.getConsoleSender().sendMessage (ChatColor.GREEN + "****************************************************************" + ChatColor.RESET);
         Bukkit.getConsoleSender().sendMessage (ChatColor.GREEN + "*                                                              *" + ChatColor.RESET);

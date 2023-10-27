@@ -54,8 +54,10 @@ public abstract class SubCommand {
 
     public abstract String usage(Player player);
 
-    public abstract List<String> getParameterOneList (Player player);
+    public abstract List<String> getParameterOneList(Player player);
+
     public abstract void SendCommandHelp(Player player);
+
     public abstract void Execute(Player player, String[] args);
 
     public boolean isValidAngle(Player player, String[] args) {
@@ -98,7 +100,7 @@ public abstract class SubCommand {
     public boolean isValidSelectedZeroParameters(Player player, String[] args) {
         if (!ArmorStandManager.getInstance().isArmorStandSelected(player)) {
             ConfigurationManager.getInstance().sendPlayerMessage(player, LanguageLookup.Armor_Stand_Not_Selected);
-        } else if (numberOfParameters() != args.length ) {
+        } else if (numberOfParameters() != args.length) {
             ConfigurationManager.getInstance().sendPlayerMessage(player, LanguageLookup.Invalid_Parameter_Count_Zero, this.subCommandName().commandText);
             ConfigurationManager.getInstance().sendPlayerMessage(player, this.usage(player));
         } else {
@@ -108,12 +110,13 @@ public abstract class SubCommand {
     }
 
     public void sendHelp(Player player, String usageString, String descriptionString) {
-        TextComponent usage = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', usageString)));
-        usage.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://www.spigotmc.org/resources/posablearmorstands.113196/field?field=documentation"));
-        usage.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text("Visit the plugin site for full documentation.")));
-        TextComponent description = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&'," &b> " + descriptionString)));
-        ConfigurationManager.getInstance().sendPlayerMessage(player, usage);
-        ConfigurationManager.getInstance().sendPlayerMessage(player, description);
+        ConfigurationManager.getInstance().SendPlayerClickableURL(player, usageString, "Visit the plugin site for full documentation.", descriptionString, "https://www.spigotmc.org/resources/posablearmorstands.113196/field?field=documentation");
+//        TextComponent usage = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', usageString)));
+//        usage.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://www.spigotmc.org/resources/posablearmorstands.113196/field?field=documentation"));
+//        usage.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text("Visit the plugin site for full documentation.")));
+//        TextComponent description = new TextComponent(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', " &b> " + descriptionString)));
+//        ConfigurationManager.getInstance().sendPlayerMessage(player, usage);
+//        ConfigurationManager.getInstance().sendPlayerMessage(player, description);
     }
 
 }

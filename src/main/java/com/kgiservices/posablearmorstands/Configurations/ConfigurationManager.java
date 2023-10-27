@@ -21,7 +21,10 @@ package com.kgiservices.posablearmorstands.Configurations;
 import com.kgiservices.posablearmorstands.Enums.ConfigurationLookup;
 import com.kgiservices.posablearmorstands.Enums.LanguageLookup;
 import com.kgiservices.posablearmorstands.PosableArmorStands;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
+import net.md_5.bungee.api.chat.hover.content.Text;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -119,5 +122,17 @@ public class ConfigurationManager {
         return instance;
     }
 
+    public void SendPlayerClickableURL(Player player, String clickableMessage, String hoverMessage, String infoMessage, String url){
+        TextComponent usage = new TextComponent(TextComponent.fromLegacyText(net.md_5.bungee.api.ChatColor.translateAlternateColorCodes('&', clickableMessage)));
+        usage.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, url));
+        if (!hoverMessage.isEmpty()) {
+            usage.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(net.md_5.bungee.api.ChatColor.translateAlternateColorCodes('&',hoverMessage))));
+        }
+        this.sendPlayerMessage(player, usage);
+        if (!infoMessage.isEmpty()) {
+            TextComponent description = new TextComponent(TextComponent.fromLegacyText(net.md_5.bungee.api.ChatColor.translateAlternateColorCodes('&', " &b> " + infoMessage)));
+            this.sendPlayerMessage(player, description);
+        }
+    }
 
 }
