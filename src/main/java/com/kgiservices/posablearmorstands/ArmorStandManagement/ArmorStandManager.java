@@ -29,6 +29,8 @@ import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.EulerAngle;
 import org.bukkit.util.RayTraceResult;
 import org.bukkit.util.Vector;
@@ -109,6 +111,7 @@ public class ArmorStandManager {
             unSelectArmorStand(player);
         }
         armorStand.setGlowing(true);
+
         selectedArmorStands.put(player.getUniqueId(), new SelectedArmorStand(armorStand));
     }
 

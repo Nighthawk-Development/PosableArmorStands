@@ -23,6 +23,9 @@ import com.kgiservices.posablearmorstands.Commands.CommandManager;
 import com.kgiservices.posablearmorstands.Configurations.ConfigurationManager;
 import com.kgiservices.posablearmorstands.Listeners.EntityListener;
 import com.kgiservices.posablearmorstands.Listeners.PlayerListener;
+import com.kgiservices.posablearmorstands.bStats.Metrics;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Level;
@@ -36,7 +39,20 @@ public final class PosableArmorStands extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new EntityListener(), this);
         new ArmorStandManager(this);
         reloadConfiguration();
-        this.getLogger().log(Level.INFO, this.getDescription().getVersion() + " finished loading.");
+
+        int pluginId = 	20150;
+        Metrics metrics = new Metrics(this, pluginId);
+
+        Bukkit.getConsoleSender().sendMessage (ChatColor.GREEN + "****************************************************************" + ChatColor.RESET);
+        Bukkit.getConsoleSender().sendMessage (ChatColor.GREEN + "*                                                              *" + ChatColor.RESET);
+        Bukkit.getConsoleSender().sendMessage ( ChatColor.GREEN + "*" + ChatColor.BLUE + "   ╭━━━╮" + ChatColor.GOLD + "╱╱╱╱╱╱╱╱" + ChatColor.BLUE + "╭╮" + ChatColor.GOLD + "╱" + ChatColor.BLUE + "╭╮" + ChatColor.GOLD + "╱╱╱" + ChatColor.BLUE + "╭━━━╮" + ChatColor.GOLD + "╱╱╱╱╱╱╱╱╱" + ChatColor.BLUE + "╭━━━╮╭╮" + ChatColor.GOLD + "╱╱╱╱╱╱╱╱" + ChatColor.BLUE + "╭╮       " + ChatColor.GREEN + "*");
+        Bukkit.getConsoleSender().sendMessage ( ChatColor.GREEN + "*" + ChatColor.BLUE + "   ┃╭━╮┃" + ChatColor.GOLD + "╱╱╱╱╱╱╱╱" + ChatColor.BLUE + "┃┃" + ChatColor.GOLD + "╱" + ChatColor.BLUE + "┃┃" + ChatColor.GOLD + "╱╱╱" + ChatColor.BLUE + "┃╭━╮┃" + ChatColor.GOLD + "╱╱╱╱╱╱╱╱╱" + ChatColor.BLUE + "┃╭━╮┣╯╰╮" + ChatColor.GOLD + "╱╱╱╱╱╱╱" + ChatColor.BLUE + "┃┃       " + ChatColor.GREEN + "*");
+        Bukkit.getConsoleSender().sendMessage ( ChatColor.GREEN + "*" + ChatColor.BLUE + "   ┃╰━╯┣━━┳━━┳━━┫╰━┫┃╭━━┫┃" + ChatColor.GOLD + "╱" + ChatColor.BLUE + "┃┣━┳╮╭┳━━┳━┫╰━━╋╮╭╋━━┳━╮╭━╯┣━━╮    " + ChatColor.GREEN + "*");
+        Bukkit.getConsoleSender().sendMessage ( ChatColor.GREEN + "*" + ChatColor.BLUE + "   ┃╭━━┫╭╮┃━━┫╭╮┃╭╮┃┃┃┃━┫╰━╯┃╭┫╰╯┃╭╮┃╭┻━━╮┃┃┃┃╭╮┃╭╮┫╭╮┃━━┫    " + ChatColor.GREEN + "*");
+        Bukkit.getConsoleSender().sendMessage ( ChatColor.GREEN + "*" + ChatColor.BLUE + "   ┃┃" + ChatColor.GOLD + "╱╱" + ChatColor.BLUE + "┃╰╯┣━━┃╭╮┃╰╯┃╰┫┃━┫╭━╮┃┃┃┃┃┃╰╯┃┃┃╰━╯┃┃╰┫╭╮┃┃┃┃╰╯┣━━┃    " + ChatColor.GREEN + "*");
+        Bukkit.getConsoleSender().sendMessage ( ChatColor.GREEN + "*" + ChatColor.BLUE + "   ╰╯" + ChatColor.GOLD + "╱╱" + ChatColor.BLUE + "╰━━┻━━┻╯╰┻━━┻━┻━━┻╯" + ChatColor.GOLD + "╱" + ChatColor.BLUE + "╰┻╯╰┻┻┻━━┻╯╰━━━╯╰━┻╯╰┻╯╰┻━━┻━━╯    " + ChatColor.GREEN + "*");
+        Bukkit.getConsoleSender().sendMessage (ChatColor.GREEN + "*                                                              *");
+        Bukkit.getConsoleSender().sendMessage (ChatColor.GREEN + "****************************************************************" + ChatColor.RESET);
     }
 
     @Override
@@ -46,4 +62,5 @@ public final class PosableArmorStands extends JavaPlugin {
     public void reloadConfiguration() {
         new ConfigurationManager(this);
     }
+
 }
